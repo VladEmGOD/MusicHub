@@ -5,7 +5,7 @@ import RecentList from "./RecentList";
 
 const Sidebar = () => {
   return (
-    <Sheet sx={{ height: "100vh" }}>
+    <Sheet sx={{ height: "70vh" }}>
       <NavigationList />
       <ChipBar />
       <RecentList />
