@@ -1,4 +1,4 @@
-import { Box, Chip, List, ListItem, Sheet } from '@mui/joy';
+import { Box, Chip } from '@mui/joy';
 
 const ChipBar = () => {
   return <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, alignItems: 'center', justifyContent: 'center' }}>

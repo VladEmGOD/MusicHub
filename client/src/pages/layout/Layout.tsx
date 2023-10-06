@@ -1,8 +1,8 @@
-import { Grid, useTheme } from "@mui/joy";
+import { Grid } from "@mui/joy";
 import type { FunctionComponent, ReactNode } from 'react';
-import { Footer } from "./Footer";
-import { Header } from "./Header";
-import Sidebar from "./Sidebar";
+import { Footer } from "../../components/footer";
+import { Header } from "../../components/header";
+import { Sidebar } from "../../components/sidebar";
 
 type Props = {
   children: ReactNode

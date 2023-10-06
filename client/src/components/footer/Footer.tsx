@@ -3,7 +3,7 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import { Box, IconButton, Slider, Stack, useTheme } from "@mui/joy";
 
-export const Footer = () => {
+const Footer = () => {
   const theme = useTheme();
   const color = theme.colorSchemes.light.palette.background.body;
 
@@ -33,3 +33,5 @@ export const Footer = () => {
     </Stack>
   </Box >
 }
+
+export default Footer;
