@@ -8,7 +8,6 @@ const Footer = () => {
   const color = theme.colorSchemes.light.palette.background.body;
 
   return <Box sx={{ position: "fixed", bottom: 0, width: "100%", background: color, zIndex: "1000" }}>
-
     <Stack
       alignItems='center'>
       <Box sx={{ padding: "10px 0 0 0", margin: 0 }}>
