@@ -1,5 +1,4 @@
 export default {
-  home: "/",
-  albums: "/albums",
-  bands: "/bands",
+  home: '/',
+  albums: '/albums',
 }
