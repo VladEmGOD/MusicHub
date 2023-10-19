@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { HomePage } from "./types";
 
-const initialState: HomePage = {
+export type HomePageState = {
+  value: number;
+};
+
+const initialState: HomePageState = {
   value: 0,
 }
 
@@ -23,7 +26,7 @@ export const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export type HomeActionType =
+export type HomePageAction =
   | ReturnType<typeof increment>
   | ReturnType<typeof decrement>
   | ReturnType<typeof incrementByAmount>;

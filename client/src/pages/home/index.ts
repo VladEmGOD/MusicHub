@@ -4,6 +4,6 @@ export {
   incrementByAmount
 } from './behaviour/slice'
 
-export type { HomeActionType } from './behaviour/slice'
+export type { HomePageAction, HomePageState } from './behaviour/slice'
 
 export { Page } from './components/Page'

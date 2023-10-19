@@ -1,13 +1,13 @@
 import { Button, Typography } from "@mui/joy"
 import { increment } from '../behaviour/slice'
 import { useDispatch, useSelector } from "react-redux"
-import { HomePage } from "../behaviour/types";
+import { HomePageState } from "../behaviour/slice";
 import { Grid, Stack } from '@mui/joy';
 import OverflowCard from "./OverflowCard";
 
 export const Page = () => {
   const dispatch = useDispatch();
-  const value = useSelector(s => (s as HomePage).value);
+  const value = useSelector(s => (s as HomePageState).value);
 
   return (<>
     <Typography level="body-lg">{value}</Typography>
