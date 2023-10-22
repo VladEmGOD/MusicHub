@@ -1,10 +1,12 @@
-import type { Epic } from 'store';
+import type { AppEpic } from 'store';
 import { map } from 'rxjs';
-import { increment, type HomePageAction } from './slice';
+import { increment, incrementByAmount, type HomePageAction } from './slice';
+import { ofType } from 'redux-observable';
 
-const homeEpic: Epic<HomePageAction> = (action$, state$, deps) => {
+const homeEpic: AppEpic = (action$, state$, deps) => {
   return action$.pipe(
-    map(_ => increment()),
+    ofType(increment.type),
+    map(_ => incrementByAmount(10)),
   );
 };
 

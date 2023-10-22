@@ -1,23 +1,26 @@
 import { Action, AnyAction, configureStore } from '@reduxjs/toolkit';
-import { StateObservable, createEpicMiddleware } from 'redux-observable';
+import { Epic, StateObservable, createEpicMiddleware } from 'redux-observable';
 import reducers from './reducers';
 import { rootEpic } from './epics';
 import { Observable } from 'rxjs';
+import { PageActionType, PageStateType } from 'pages/types';
 
 const epicMiddleware = createEpicMiddleware();
 
 const store = configureStore({
   reducer: reducers,
-  middleware: [epicMiddleware],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: false }).concat([epicMiddleware]),
 });
 
 export type State = typeof store.getState;
 
-export type Epic<TAction extends Action<any>> = (
-  action$: Observable<TAction>,
-  state$: StateObservable<State>,
-  dependencies: any
-) => Observable<TAction>;
+// export type Epic<TAction extends Action<any>> = (
+//   action$: Observable<TAction>,
+//   state$: StateObservable<State>,
+//   dependencies: any
+// ) => Observable<TAction>;
+
+export type AppEpic = Epic<PageActionType, PageActionType, PageStateType, any>;
 
 // for now redux-observable typing works not really well
 // ts-ignore should be removed after https://github.com/redux-observable/redux-observable/issues/706 closed

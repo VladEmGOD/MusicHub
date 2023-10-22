@@ -1,9 +1,11 @@
 import { map } from 'rxjs';
 import { type AlbumsPageAction, oneString } from './slice';
-import type { Epic } from 'store';
+import type { AppEpic } from 'store';
+import { ofType } from 'redux-observable';
 
-const albumsEpic: Epic<AlbumsPageAction> = (action$, state$, deps) => {
+const albumsEpic: AppEpic = (action$, state$, deps) => {
   return action$.pipe(
+    ofType(oneString.type),
     map(_ => oneString()),
   );
 };

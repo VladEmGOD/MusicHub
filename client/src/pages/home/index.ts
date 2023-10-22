@@ -1,8 +1,4 @@
-export {
-  increment,
-  decrement,
-  incrementByAmount
-} from './behaviour/slice'
+export { } from './behaviour/slice'
 
 export type { HomePageAction, HomePageState } from './behaviour/slice'
 

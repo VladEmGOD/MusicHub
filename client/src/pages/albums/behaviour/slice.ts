@@ -31,5 +31,8 @@ export type AlbumsPageAction =
   | ReturnType<typeof twoString>
   | ReturnType<typeof addToString>;
 
+export type AlbumsPageA = typeof albumsSlice.actions
+
+
 export default albumsSlice.reducer
 
