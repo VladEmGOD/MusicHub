@@ -14,12 +14,6 @@ const store = configureStore({
 
 export type State = typeof store.getState;
 
-// export type Epic<TAction extends Action<any>> = (
-//   action$: Observable<TAction>,
-//   state$: StateObservable<State>,
-//   dependencies: any
-// ) => Observable<TAction>;
-
 export type AppEpic = Epic<PageActionType, PageActionType, PageStateType, any>;
 
 // for now redux-observable typing works not really well
