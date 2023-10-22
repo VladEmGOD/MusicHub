@@ -31,5 +31,5 @@ export type HomePageAction =
   | ReturnType<typeof decrement>
   | ReturnType<typeof incrementByAmount>;
 
-export default counterSlice.reducer
+export default counterSlice.reducer;
 

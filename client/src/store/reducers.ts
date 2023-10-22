@@ -1,7 +1,7 @@
-import { combineReducers } from '@reduxjs/toolkit'
+import { combineReducers } from '@reduxjs/toolkit';
 
-import home from 'pages/home/behaviour/slice'
-import albums from 'pages/albums/behaviour/slice'
+import home from 'pages/home/behaviour/slice';
+import albums from 'pages/albums/behaviour/slice';
 
 const pageReducer = combineReducers({
   home,
@@ -10,4 +10,4 @@ const pageReducer = combineReducers({
 
 export default {
   page: pageReducer,
-}
+};

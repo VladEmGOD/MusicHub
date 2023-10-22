@@ -1,5 +1,5 @@
 import { map } from 'rxjs';
-import { type AlbumsPageAction, oneString } from './slice';
+import { oneString } from './slice';
 import type { AppEpic } from 'store';
 import { ofType } from 'redux-observable';
 
