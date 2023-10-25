@@ -1,8 +1,7 @@
-import { Action, AnyAction, configureStore } from '@reduxjs/toolkit';
-import { Epic, StateObservable, createEpicMiddleware } from 'redux-observable';
+import { configureStore } from '@reduxjs/toolkit';
+import { Epic, createEpicMiddleware } from 'redux-observable';
 import reducers from './reducers';
 import { rootEpic } from './epics';
-import { Observable } from 'rxjs';
 import { PageActionType, PageStateType } from 'pages/types';
 
 const epicMiddleware = createEpicMiddleware();
