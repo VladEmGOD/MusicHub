@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { BasePageState } from "pages/types";
 
-export type AlbumPageState = {
+export type AlbumPageState = BasePageState & {
   albums: string,
 }
 

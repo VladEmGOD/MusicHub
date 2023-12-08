@@ -1,20 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { store } from 'store'
 import { Provider } from 'react-redux'
-import { Layout } from 'pages/layout';
-import { RouterProvider } from 'react-router';
-import { ReactRoutes } from 'routing';
-import { createBrowserRouter } from 'react-router-dom';
+import { Layout } from 'components/layout';
+import { createStore } from 'store'
+import { App } from './App';
+import { createRouter } from 'routing/createRouter';
+import { createBrowserHistory } from 'history';
+import { navigateTo } from 'routing/slice';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-const router = createBrowserRouter(ReactRoutes);
+
+const history = createBrowserHistory();
+const router = createRouter(history);
+const store = createStore(router);
+
+console.log('location: ', router.location)
+store.dispatch(navigateTo(router.location));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Layout>
-        <RouterProvider router={router} />
+        <App />
       </Layout>
     </Provider>
   </React.StrictMode>

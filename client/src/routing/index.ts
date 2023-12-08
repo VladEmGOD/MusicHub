@@ -1,2 +1,2 @@
-export { default as AppRoutes } from './routes';
-export { default as ReactRoutes } from './react.routes';
+export type { RoutingAction, RoutingState } from './slice';
+export { default as routingReducer } from './slice';

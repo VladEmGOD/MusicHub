@@ -1,11 +1,10 @@
-import { BasePageState } from './../../types';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export type HomePageState = BasePageState & {
+export type NotFoundPageState = {
   value: number;
 };
 
-const initialState: HomePageState = {
+const initialState: NotFoundPageState = {
   value: 0,
 }
 
@@ -27,9 +26,10 @@ export const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export type HomePageAction =
+export type NotFoundPageAction =
   | ReturnType<typeof increment>
   | ReturnType<typeof decrement>
   | ReturnType<typeof incrementByAmount>;
 
 export default counterSlice.reducer;
+

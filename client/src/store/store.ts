@@ -1,23 +1,29 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { Epic, createEpicMiddleware } from 'redux-observable';
-import reducers from './reducers';
-import { rootEpic } from './epics';
-import { PageActionType, PageStateType } from 'pages/types';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { routingReducer } from "routing";
+import { createEpicMiddleware } from "redux-observable";
+import pageRedusers from "pages/reducers";
+import { appEpics } from "./appEpics";
+import { Router } from "routing/createRouter";
 
-const epicMiddleware = createEpicMiddleware();
+const reducers = combineReducers({
+  routing: routingReducer,
+  page: pageRedusers
+})
 
-const store = configureStore({
-  reducer: reducers,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: false }).concat([epicMiddleware]),
-});
+export type ApplicationState = ReturnType<typeof reducers>;
 
-export type State = typeof store.getState;
+export const createStore = (router: Router) => {
+  const epicMiddleware = createEpicMiddleware({
+    dependencies: {}
+  });
 
-export type AppEpic = Epic<PageActionType, PageActionType, PageStateType, any>;
+  const store = configureStore({
+    reducer: reducers,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: false }).concat([epicMiddleware]),
+  });
 
-// for now redux-observable typing works not really well
-// ts-ignore should be removed after https://github.com/redux-observable/redux-observable/issues/706 closed
-//@ts-ignore
-epicMiddleware.run(rootEpic);
+  //@ts-ignore
+  epicMiddleware.run(appEpics(router));
 
-export default store;
+  return store;
+}

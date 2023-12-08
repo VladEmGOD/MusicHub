@@ -1,2 +1,2 @@
-export { default as store } from './store';
-export type { AppEpic } from './store';
+export { createStore } from './store'
+export { mergeRedusers } from './utils'
