@@ -10,19 +10,10 @@ import { navigateTo } from 'routing/slice';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
-const history = createBrowserHistory();
-const router = createRouter(history);
-const store = createStore(router);
-
-console.log('location: ', router.location)
-store.dispatch(navigateTo(router.location));
-
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
       <Layout>
         <App />
       </Layout>
-    </Provider>
   </React.StrictMode>
 );
